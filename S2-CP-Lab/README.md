@@ -40,3 +40,10 @@ Solutions to the II Semester CP Lab Programs, 2019 Scheme <br /><br />
 **19.** To write a program using pointers to access the elements of an array and count the number of occurrences of the given number in the array. <br />
 
 **20.** To write a program to count the number of characters,lines in a file. <br />
+
+## Lab Exam
+
+**21.** Write a menu driven C program to do the following <br/>
+ &nbsp; &nbsp; &nbsp; **A.** Check whether a given matrix is symmetric or not <br />
+ &nbsp; &nbsp; &nbsp; **B.** Find and Display the upper and lower triangular matrices of a given matrix in matrix format.<br />
+ &nbsp; &nbsp; &nbsp; Use separate functions for each .Read the matrix in the main function. <br />
