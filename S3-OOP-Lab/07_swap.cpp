@@ -55,23 +55,30 @@ int main()
     S.output();
     while (online)
     {
+        cout << "\n_____________________________________________";
         cout << "\n\n 1. Swap by value \t 2. Swap by Reference \n\n 3. Swap by Address \t 4. Exit \n\n\t Enter choice : ";
         cin >> choice;
         switch(choice)
         {
             case 1:
-                cout << "\nSwap by Value \n";
+                cout << "\n\nSWAP BY VALUE \n";
+                S.output();
                 S.swapValue(S);
+                cout << "\nAfter swap: \n";
                 S.output();
                 break;
             case 2:
-                cout << "\nSwap by Reference \n";
+                cout << "\n\nSWAP BY REFERENCE \n";
+                S.output();
                 S.swapReference(S);
+                cout << "\nAfter swap: \n";
                 S.output();
                 break;
             case 3:
-                cout << "\nSwap by Address \n";
+                cout << "\n\nSWAP BY ADDRESS \n";
+                S.output();
                 S.swapAddress(&S);
+                cout << "\nAfter swap: \n";
                 S.output();
                 break;
             case 4:

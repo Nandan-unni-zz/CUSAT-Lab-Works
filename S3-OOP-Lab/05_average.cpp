@@ -20,7 +20,7 @@ class Average
             cout << "\nThe array is [";
             for (int i = 0; i < n; i++)
                 cout << arr[i] << ", ";
-            cout << "] \nThe average is " << average;
+            cout << "] \nThe average is " << average << endl;
         }
         int static getAverage(int *ptr, int n, int multiplier = 1)
         {
@@ -32,6 +32,24 @@ class Average
             }
             avg = sum / n;
             return avg;
+        }
+        void sort(int *ptr, int n)
+        {
+            int i, j;    
+            int temp=0;            
+            for(i = 0; i < n-1; i++)
+            {
+                for (j = 0; j < n-1; j++)
+               {
+                   if (*(ptr + j) > *(ptr +(j+1)))      
+                   { 
+                    temp = *(ptr + j);             
+                    *(ptr + j) = *(ptr +(j+1));
+                    *(ptr +(j+1)) = temp;               
+                   }
+               }
+            }
+            cout << "\nArray sorted in ascending order !\n";
         }
 } obj1, obj2, obj3;
 
@@ -48,6 +66,9 @@ int main()
     cin >> multiplier;
     obj2.average = obj2.getAverage(&obj2.arr[0], n, multiplier);
     obj2.output(n);
+    obj3 = obj1;
+    obj3.sort(&obj3.arr[0], n);
+    obj3.output(n);
     return 0;
 }
 

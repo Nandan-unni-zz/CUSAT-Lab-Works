@@ -9,9 +9,9 @@ Solutions to the III Semester OOP Lab Programs, 2019 Scheme <br /><br />
 
 **4.** Write a class which represents the shape triangle. The member functions should a) Check the validity of the triangle b) display the sides c) find the area and display it.<br /><br />
 
-**5.** Write  class which contains an integer array and a static function to find the average of that array. Create THREE objects. Read the values into the array using one object, and find the average. Let the second object modifies the value by multiplying each element by a certain multiplier. Repeat the process of finding the average usng first object. <br /><br />
+**5.** Write  class which contains an integer array and a static function to find the average of that array. Create three objects. Read the values into the array using one object, and find the average. Let the second object modifies the value by multiplying each element by a certain multiplier. Repeat the process of finding the average usng first object. Using the third object arrange the numbers in ascending order and print. <br /><br />
 
-**6.** Write a program to find shortest distance between three coordinates points, representing vertices of a triangle, using inline function. <br /><br />
+**6.** Write a program to find shortest distance between three coordinates points, representing vertices of a triangle, using inline function. Also check the validity of the sides to make a triangle. <br /><br />
 
 **7.** Write a function called swap() that interchanges two int values 	belonging to an object, passed as parameter to it by the calling program. Write a C++ program to demonstrate call by value, call by reference and call by address. <br /><br />
 

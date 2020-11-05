@@ -13,7 +13,7 @@ int power(int n, int p)
 
 char power(char n, int p)
 {
-    return '?';
+    return pow(n, p);
 }
 
 long power(long n, int p)
@@ -37,11 +37,23 @@ int main()
     long l = 2;
     float f = 2.0;
     double d = 2.0;
-    printf("Int type overloaded func returned the value %d\n", power(i, p));
-    printf("Char type overloaded func returned the value %c\n", power(c, p));
-    printf("Long type overloaded func returned the value %ld\n", power(l, p));
-    printf("Float type overloaded func returned the value %f\n", power(f, p));
-    printf("Double type overloaded func returned the value %lf\n", power(d, p));
+    cout << "Enter the power : ";
+    cin >> p;
+    cout << "\nEnter a int type value : ";
+    cin >> i;
+    cout << "Int type overloaded func returned the value " << power(i, p) << endl;
+    cout << "\nEnter a char type value : ";
+    cin >> c;
+    cout << "Char type overloaded func returned the value " << power(c, p) << endl;
+    cout << "\nEnter a long type value : ";
+    cin >> l;
+    cout << "Long type overloaded func returned the value " << power(l, p) << endl;
+    cout << "\nEnter a float type value : ";
+    cin >> f;
+    cout << "Float type overloaded func returned the value " << power(f, p) << endl;
+    cout << "\nEnter a double type value : ";
+    cin >> d;
+    cout << "Double type overloaded func returned the value " << power(d, p) << endl;
     return 0;
 }
 

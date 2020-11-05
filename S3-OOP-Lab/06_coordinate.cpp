@@ -30,7 +30,11 @@ inline void getShortest(int x1, int y1, int x2, int y2, int x3, int y3)
     l1 = sqrt(pow((x2 - x1), 2) + pow((y2 - y1), 2));
     l2 = sqrt(pow((x2 - x3), 2) + pow((y2 - y3), 2));
     l3 = sqrt(pow((x3 - x1), 2) + pow((y3 - y1), 2));
-    cout << ((l1 > l2) ? ((l2 > l3) ? l3 : l2) : ((l1 > l3) ? l3 : l1));
+    cout << "\nLenght btw 1st set : " << l1 << endl;
+    cout << "Lenght btw 2nd set : " << l2 << endl;
+    cout << "Lenght btw 3rd set : " << l3 << endl;
+    cout << "\nThe shortest distance between the 3 coordintes is : ";
+    cout << ((l1 > l2) ? ((l2 > l3) ? l3 : l2) : ((l1 > l3) ? l3 : l1)) << endl;
 }
 
 int main()
@@ -39,7 +43,6 @@ int main()
     getCoordinate(x1, y1, x2, y2, x3, y3);
     if (checkCoordinate(x1, y1, x2, y2, x3, y3))
     {
-        cout << "\nThe shortest distance between the 3 coordintes is : ";
         getShortest(x1, y1, x2, y2, x3, y3);
     }
     else
