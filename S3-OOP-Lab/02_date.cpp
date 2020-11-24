@@ -65,7 +65,7 @@ class Date
                         else
                         {
                             nxt_day = 1;
-                            nxt_month = 5;
+                            nxt_month += 1;
                         }
                         
                     }
@@ -102,7 +102,7 @@ class Date
                         else
                         {
                             nxt_day = 1;
-                            nxt_month += 1;
+                            nxt_month = 1;
                             nxt_year += 1;
                         }
                         
