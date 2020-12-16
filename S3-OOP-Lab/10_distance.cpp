@@ -27,28 +27,28 @@ class Distance
         Distance operator <(Distance d1)
         {
             Distance d2;
-            if (d1.inch == inch)
+            if (d1.feet == feet)
             {
-                if (d1.feet > feet)
+                if (d1.inch > inch)
                 {
-                    d2.inch = d1.inch;
                     d2.feet = d1.feet;
+                    d2.inch = d1.inch;
                 }
                 else
                 {
-                    d2.inch = inch;
                     d2.feet = feet;
+                    d2.inch = inch;
                 }
             }
-            else if (d1.inch > inch)
+            else if (d1.feet > feet)
             {
-                d2.inch = d1.inch;
                 d2.feet = d1.feet;
+                d2.inch = d1.inch;
             }
-            else if (d1.inch < inch)
+            else if (d1.feet < feet)
             {
-                d2.inch = inch;
                 d2.feet = feet;
+                d2.inch = inch;
             }
             return d2;
         }
