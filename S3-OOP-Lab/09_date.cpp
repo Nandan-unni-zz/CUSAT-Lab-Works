@@ -38,17 +38,6 @@ class Date
             
             switch (month)
             {
-                case 1:
-                case 3:
-                case 5:
-                case 7:
-                case 8:
-                case 10:
-                case 12:
-                    if (day > 31)
-                        return false;
-                    break;
-
                 case 4:
                 case 6:
                 case 9:
