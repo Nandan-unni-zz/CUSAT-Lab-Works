@@ -8,34 +8,35 @@ using namespace std;
 
 class Triangle
 {
-    private:
-        float s1, s2, s3;
-        float area;
-    public:
-        bool is_valid;
-        void input()
-        {
-            cout << "Enter the sides : ";
-            cin >> s1 >> s2 >> s3;
-        }
-        void verify()
-        {
-            if (((s1 + s2) > s3) && ((s2 + s3) > s1) && ((s3 + s1) > s2))
-                is_valid = true;
-            else
-                is_valid = false;
-        }
-        void disp_sides()
-        {
-            cout << "\nSides are " << s1 << ", " << s2 << " and " << s3 << "\n";
-        }
-        void disp_area()
-        {
-            int s = (s1 + s2 + s3) / 2;
-            area = sqrt(s * (s - s1) * (s - s2) * (s - s3));
-            cout << "\nThe area of the triangle is " << area << "\n";
-        }
-}t;
+private:
+    float s1, s2, s3;
+    float area;
+
+public:
+    bool is_valid;
+    void input()
+    {
+        cout << "Enter the sides : ";
+        cin >> s1 >> s2 >> s3;
+    }
+    void verify()
+    {
+        if (((s1 + s2) > s3) && ((s2 + s3) > s1) && ((s3 + s1) > s2))
+            is_valid = true;
+        else
+            is_valid = false;
+    }
+    void disp_sides()
+    {
+        cout << "\nSides are " << s1 << ", " << s2 << " and " << s3 << "\n";
+    }
+    void disp_area()
+    {
+        int s = (s1 + s2 + s3) / 2;
+        area = sqrt(s * (s - s1) * (s - s2) * (s - s3));
+        cout << "\nThe area of the triangle is " << area << "\n";
+    }
+} t;
 
 int main()
 {

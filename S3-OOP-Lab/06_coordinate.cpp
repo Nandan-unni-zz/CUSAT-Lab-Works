@@ -18,7 +18,7 @@ void getCoordinate(int &x1, int &y1, int &x2, int &y2, int &x3, int &y3)
 
 bool checkCoordinate(int &x1, int &y1, int &x2, int &y2, int &x3, int &y3)
 {
-    float check = (x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) / 2;
+    float check = x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2);
     if (check == 0)
         return false;
     return true;
@@ -46,13 +46,33 @@ int main()
         getShortest(x1, y1, x2, y2, x3, y3);
     }
     else
-        cout << "\nInvalid coordinates";
+        cout << "\nInvalid coordinates\n";
     return 0;
 }
 
 /*
-OUTPUT
+OUTPUT 1:
+Enter the 1st coordinates : 2
+2
+Enter the 2nd coordinates : 0
+9
+Enter the 3rd coordinates : 4
+0
 
+Lenght btw 1st set : 7.28011
+Lenght btw 2nd set : 9.84886
+Lenght btw 3rd set : 2.82843
 
+The shortest distance between the 3 coordintes is : 2.82843
+
+OUTPUT 2:
+Enter the 1st coordinates : 0
+2
+Enter the 2nd coordinates : 0
+4
+Enter the 3rd coordinates : 0
+8
+
+Invalid coordinates
 
 */

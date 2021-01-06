@@ -9,7 +9,8 @@ using namespace std;
 class Polar
 {
     float radius, angle;
-    public:
+
+public:
     void input()
     {
         cout << "Enter the Radius and Angle : ";
@@ -32,15 +33,16 @@ class Polar
 class Rectangular
 {
     float x, y;
-    public:
-    void operator = (Polar P)
+
+public:
+    void operator=(Polar P)
     {
         x = P.getRadius() * cos((P.getAngle() * M_PI) / 180);
         y = P.getRadius() * sin((P.getAngle() * M_PI) / 180);
     }
     void output()
     {
-        cout << "\nRecatangular form\nx: " << x << "\ny: " << y << endl ;
+        cout << "\nRecatangular form\nx: " << x << "\ny: " << y << endl;
     }
 };
 
@@ -58,6 +60,15 @@ int main()
 /*
 OUTPUT
 
+Enter the Radius and Angle : 7
+45
 
+Polar Form
+radius: 7m
+angle: 45°
+
+Recatangular form
+x: 4.94975
+y: 4.94975
 
 */

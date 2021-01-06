@@ -14,7 +14,6 @@ struct Phone
     }
 };
 
-
 int main()
 {
     Phone phno1, phno2;
@@ -25,7 +24,7 @@ int main()
     cin >> phno2.area_code >> phno2.exchange_code >> phno2.num_code;
     cout << "My number is ";
     phno1.disp_number();
-    cout<< "Your number is ";
+    cout << "Your number is ";
     phno2.disp_number();
     return 0;
 }

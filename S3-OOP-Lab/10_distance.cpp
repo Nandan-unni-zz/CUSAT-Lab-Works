@@ -8,55 +8,56 @@ using namespace std;
 class Distance
 {
     int feet, inch;
-    public:
-        void input()
-        {
-            cout << "Enter the feet and inch : ";
-            cin >> feet >> inch;
-            if (inch > 12)
-            {
-                feet += inch / 12;
-                inch = inch % 12;
-            }
-        }
-        void ouptut()
-        {
-            cout << feet << " feet " << inch << " inch " << endl; 
-        }
 
-        Distance operator <(Distance d1)
+public:
+    void input()
+    {
+        cout << "Enter the feet and inch : ";
+        cin >> feet >> inch;
+        if (inch > 12)
         {
-            Distance d2;
-            if (d1.feet == feet)
-            {
-                if (d1.inch > inch)
-                {
-                    d2.feet = d1.feet;
-                    d2.inch = d1.inch;
-                }
-                else
-                {
-                    d2.feet = feet;
-                    d2.inch = inch;
-                }
-            }
-            else if (d1.feet > feet)
+            feet += inch / 12;
+            inch = inch % 12;
+        }
+    }
+    void ouptut()
+    {
+        cout << feet << " feet " << inch << " inch " << endl;
+    }
+
+    Distance operator<(Distance d1)
+    {
+        Distance d2;
+        if (d1.feet == feet)
+        {
+            if (d1.inch > inch)
             {
                 d2.feet = d1.feet;
                 d2.inch = d1.inch;
             }
-            else if (d1.feet < feet)
+            else
             {
                 d2.feet = feet;
                 d2.inch = inch;
             }
-            return d2;
         }
+        else if (d1.feet > feet)
+        {
+            d2.feet = d1.feet;
+            d2.inch = d1.inch;
+        }
+        else if (d1.feet < feet)
+        {
+            d2.feet = feet;
+            d2.inch = inch;
+        }
+        return d2;
+    }
 
-        friend Distance operator +(Distance, Distance);
+    friend Distance operator+(Distance, Distance);
 };
 
-Distance operator +(Distance d1, Distance d2)
+Distance operator+(Distance d1, Distance d2)
 {
     Distance d3;
     d3.inch = d1.inch + d2.inch;
@@ -91,6 +92,16 @@ int main()
 /*
 OUTPUT
 
+Enter the 1st distance
+Enter the feet and inch : 5 4
 
+Enter the 2nd distance
+Enter the feet and inch : 6 10
+
+Distance I : 5 feet 4 inch 
+Distance II : 6 feet 10 inch 
+
+The largest of the two distances is 6 feet 10 inch 
+The sum of the distances is 12 feet 2 inch 
 
 */

@@ -15,126 +15,128 @@ bool leap_year_check(int year)
 
 class Date
 {
-    private:
-        int day, month, year;
-        bool is_leap_year = false;
-    public:
-        void input()
-        {
-            cout << "Enter the day, month and year : ";
-            cin >> day >> month >> year;
-            is_leap_year = leap_year_check(year);
-        }
+private:
+    int day, month, year;
+    bool is_leap_year = false;
 
-        void output()
-        {
-            cout << endl << day << " / " << month << " / " << year << endl;
-        }
+public:
+    void input()
+    {
+        cout << "Enter the day, month and year : ";
+        cin >> day >> month >> year;
+        is_leap_year = leap_year_check(year);
+    }
 
-        bool is_valid()
+    void output()
+    {
+        cout << endl
+             << day << " / " << month << " / " << year << endl;
+    }
+
+    bool is_valid()
+    {
+        if ((day < 0) || (month < 0) || (year < 0) || (day > 31) || (month > 12))
+            return false;
+
+        switch (month)
         {
-            if ((day < 0) || (month < 0) || (year < 0) || (day > 31) || (month > 12))
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            if (day > 30)
                 return false;
-            
-            switch (month)
-            {
-                case 4:
-                case 6:
-                case 9:
-                case 11:
-                    if (day > 30)
-                        return false;
-                    break;
-                
-                case 2:
-                    if ((is_leap_year) && (day > 29)) // leap year check
-                        return false;
-                    else if ((day > 28) && (!is_leap_year)) // non-leap year check
-                        return false;
-                    break;
+            break;
 
-                default:
-                    break;
-            }
-            return true;
+        case 2:
+            if ((is_leap_year) && (day > 29)) // leap year check
+                return false;
+            else if ((day > 28) && (!is_leap_year)) // non-leap year check
+                return false;
+            break;
+
+        default:
+            break;
         }
+        return true;
+    }
 
-        Date operator +(int days_count)
+    Date operator+(int days_count)
+    {
+        Date d2;
+        d2.day = day;
+        d2.month = month;
+        d2.year = year;
+        d2.is_leap_year = is_leap_year;
+
+        if (days_count > 1461)
         {
-            Date d2;
-            d2.day = day;
-            d2.month = month;
-            d2.year = year;
-            d2.is_leap_year = is_leap_year;
+            d2.year += 4 * (days_count / 1461);
+            days_count = days_count % 1461;
+        } // There will be 1461 days between every 4 years
 
-            if (days_count > 1461)
+        for (int i = 0; i < days_count; i++)
+        {
+            d2.is_leap_year = leap_year_check(d2.year);
+            switch (d2.month)
             {
-                d2.year += 4 * (days_count / 1461);
-                days_count = days_count % 1461;
-            } // There will be 1461 days between every 4 years
-
-            for (int i=0; i < days_count; i++)
-            {
-                d2.is_leap_year = leap_year_check(d2.year);
-                switch (d2.month)
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+                if (d2.day < 31)
+                    d2.day += 1;
+                else
                 {
-                    case 1:
-                    case 3:
-                    case 5:
-                    case 7:
-                    case 8:
-                    case 10:
-                        if (d2.day < 31)
-                            d2.day += 1;
-                        else
-                        {
-                            d2.day = 1;
-                            d2.month += 1;
-                        }
-                        break;
-
-                    case 4:
-                    case 6:
-                    case 9:
-                    case 11:
-                        if (d2.day < 30)
-                            d2.day += 1;
-                        else
-                        {
-                            d2.day = 1;
-                            d2.month += 1;
-                        }
-                        break;
-                    
-                    case 2:
-                        if ((d2.day < 29) && (d2.is_leap_year))
-                            d2.day += 1;
-                        else if ((d2.day < 28) && (!d2.is_leap_year))
-                            d2.day += 1;
-                        else
-                        {
-                            d2.day = 1;
-                            d2.month = 3;
-                        }
-                        break;
-                    
-                    case 12:
-                        if (d2.day < 31)
-                            d2.day += 1;
-                        else
-                        {
-                            d2.day = 1;
-                            d2.month = 1;
-                            d2.year += 1;
-                        }
-                        break;
-
-                    default:
-                        break;
+                    d2.day = 1;
+                    d2.month += 1;
                 }
+                break;
+
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                if (d2.day < 30)
+                    d2.day += 1;
+                else
+                {
+                    d2.day = 1;
+                    d2.month += 1;
+                }
+                break;
+
+            case 2:
+                if ((d2.day < 29) && (d2.is_leap_year))
+                    d2.day += 1;
+                else if ((d2.day < 28) && (!d2.is_leap_year))
+                    d2.day += 1;
+                else
+                {
+                    d2.day = 1;
+                    d2.month = 3;
+                }
+                break;
+
+            case 12:
+                if (d2.day < 31)
+                    d2.day += 1;
+                else
+                {
+                    d2.day = 1;
+                    d2.month = 1;
+                    d2.year += 1;
+                }
+                break;
+
+            default:
+                break;
             }
-            return d2;
         }
+        return d2;
+    }
 };
 
 int main()
@@ -160,8 +162,26 @@ int main()
 }
 
 /*
-OUTPUT
+OUTPUT 1:
+Enter the day, month and year : 18 06 2000
 
+The date you entered is 
+18 / 6 / 2000
 
+Valid Date
+
+Enter the no of days to be added : 100
+
+18 / 6 / 2000
+ + 100 days = 
+26 / 9 / 2000
+
+OUTPUT 2:
+Enter the day, month and year : 29 02 2021
+
+The date you entered is 
+29 / 2 / 2021
+
+Invalid Date
 
 */
