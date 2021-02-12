@@ -1,2 +1,6 @@
+# C / C++
 *.out
 *.exe
+
+# Java
+*.class
