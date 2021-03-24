@@ -1,3 +1,7 @@
+// A S Nandanunni
+// Reg No: 20219023
+// CS - A
+
 import java.io.*;
 
 class Stack {
