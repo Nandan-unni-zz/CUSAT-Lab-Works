@@ -21,3 +21,5 @@ Solutions to the IV Semester DS Lab Programs, 2019 Scheme <br /><br />
 **[9](09/ReverseLinkedList.java).** Write a program to reverse a Singly Linked List. <br />
 
 **[10](10/Deque.java).** Write program to implement a DEQUE using Doubly Linked List. <br />
+
+**[Internals - I](Internals_I/LinkedList.java).** Create a Singly Linked List to delete a node in the middle and last. <br />

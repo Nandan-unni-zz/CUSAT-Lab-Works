@@ -71,19 +71,17 @@ class LinkedList {
     }
 
     public void insert(int key, int d) {
-        Link temp = new Link(d);
+        Link newLink = new Link(d);
         Link currentLink = first;
-        Link previousLink = first;
         while (currentLink.data != key) {
             if (currentLink.next == null)
                 break;
             else {
-                previousLink = currentLink;
                 currentLink = currentLink.next;
             }
         }
-        temp.next = previousLink.next;
-        previousLink.next = temp;
+        newLink.next = currentLink.next;
+        currentLink.next = newLink;
     }
 
     public Link delete(int key) {
