@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Create Account - SHA</title>
+    <style>
+        .create_form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .create_form input[type="text"], .create_form input[type="password"] {
+            height: 25px;
+        }
+        .create_submit {
+            height: 40px;
+            width: 120px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="createAccount.php" class="create_form">
+        <h1>Create Account</h1>
+        <table>
+            <tr>
+                <td><label for="username">Username </label></td>
+                <td><input type="text" name="username" id="username" /></td>
+            </tr>
+            <tr>
+                <td><label for="password">Password </label></td>
+                <td><input type="password" name="password" id="password" /></td>
+            </tr>
+            <tr>
+                <td><label for="cpassword">Confirm Password &nbsp; </label></td>
+                <td><input type="password" name="cpassword" id="cpassword" /></td>
+            </tr>
+        </table>
+        <br />
+        <input class="create_submit" type="submit" value="Create Account" /><br />
+        <a style="font-size: 18px;" href="/loginsha/">Login</a>
+    </form>    
+</body>
+</html>

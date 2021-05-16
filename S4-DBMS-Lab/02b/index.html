@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login - MD5</title>
+    <style>
+        .login_form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .login_form input[type="text"], .login_form input[type="password"] {
+            height: 25px;
+        }
+        .login_submit {
+            height: 40px;
+            width: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="login.php" class="login_form">
+        <h1>Login</h1>
+        <table>
+            <tr>
+                <td><label for="username">Username &nbsp; </label></td>
+                <td><input type="text" name="username" id="username" /></td>
+            </tr>
+            <tr>
+                <td><label for="password">Password &nbsp; </label></td>
+                <td><input type="password" name="password" id="password" /></td>
+            </tr>
+        </table>
+        <br />
+        <input class="login_submit" type="submit" value="Login" /><br />
+        <a style="font-size: 18px;" href="createAccount.html">Create an account</a>
+    </form>
+</body>
+</html>

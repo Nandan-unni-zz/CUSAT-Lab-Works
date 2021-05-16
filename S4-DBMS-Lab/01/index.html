@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Students</title>
+    <style>
+        .student_form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .student_form input[type="text"] {
+            height: 25px;
+        }
+        .student_submit {
+            height: 40px;
+            width: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="register.php" class="student_form">
+        <h1>Student Registration</h1>
+        <table>
+            <tr>
+                <td><label for="regNo">Register Number &nbsp; </label></td>
+                <td><input type="text" name="regNo" id="regNo" /></td>
+            </tr>
+            <tr>
+                <td><label for="name">Name </label></td>
+                <td><input type="text" name="name" id="name" /></td>
+            </tr>
+            <tr>
+                <td><label for="emailId">Email Id</label></td>
+                <td><input type="text" name="emailId" id="emailId" /></td>
+            </tr>
+            <tr>
+                <td><label for="phoneNo">Phone Number </label></td>
+                <td><input type="text" name="phoneNo" id="phoneNo" /></td>
+            </tr>
+        </table>
+        <br />
+        <input class="student_submit" type="submit" value="Submit" />
+    </form>
+</body>
+</html>
