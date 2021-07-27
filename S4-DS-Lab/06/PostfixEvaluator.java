@@ -36,7 +36,6 @@ class PostfixStack {
     }
 }
 
-
 public class PostfixEvaluator {
 
     public static int precedence(char ch) {

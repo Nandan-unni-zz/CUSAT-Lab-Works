@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  text-decoration: none;
+}
+button,
+input[type="submit"] {
+  height: 40px;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.portal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 10px;
+  }
+.portal > * {
+  padding-bottom: 10px;
+}
+.portal-item {
+  display: flex;
+  align-items: center;
+}
+.portal-item label {
+  width: 150px;
+}
+.portal input[type="text"],
+.portal input[type="email"],
+.portal input[type="number"],
+.portal select,
+.portal textarea,
+.portal input[type="password"] {
+  padding: 10px;
+  width: 300px;
+  border-radius: 3px;
+  border: 1px solid black;
+  resize: none;
+}
+.portal nav {
+  display: flex;
+  align-items: center;
+}
+table,
+td {
+  border-collapse: collapse;
+  padding: 8px;
+}
+.table table,
+.student_details td {
+  border: 1px solid black;
+  padding: 15px;
+}

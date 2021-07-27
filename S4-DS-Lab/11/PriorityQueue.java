@@ -1,8 +1,13 @@
+// A S Nandanunni
+// Reg No: 20219023
+// CS - A
+
 import java.io.*;
 
 class Link {
     int data;
     Link next;
+
     public Link(int d) {
         data = d;
     }
@@ -17,7 +22,7 @@ class LinkedList {
 
     public void insert(int data) {
         Link newLink = new Link(data);
-        if (first == null) 
+        if (first == null)
             first = newLink;
         else if (newLink.data > first.data) {
             newLink.next = first;
@@ -37,9 +42,9 @@ class LinkedList {
     }
 
     public void remove() {
-        if (!isEmpty()) {   
+        if (!isEmpty()) {
             first = first.next;
-        } else {    
+        } else {
             System.out.print("Priority Queue is empty!");
         }
     }
@@ -59,14 +64,13 @@ class LinkedList {
         System.out.println('\n');
     }
 
-
     public int peekMax() {
         return first.data;
     }
 
     public int peekMin() {
         Link currentLink = first;
-        while (currentLink.next != null) 
+        while (currentLink.next != null)
             currentLink = currentLink.next;
         return currentLink.data;
     }
@@ -85,7 +89,7 @@ class PriorityQueue {
             chosen = Integer.parseInt(in.readLine());
             System.out.println("\n");
             switch (chosen) {
-                case 1: 
+                case 1:
                     System.out.println("Enter the element to be added: ");
                     element = Integer.parseInt(in.readLine());
                     list.insert(element);

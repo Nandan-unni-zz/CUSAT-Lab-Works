@@ -11,7 +11,7 @@ class Queue {
     public Queue(int s) {
         size = s;
         arr = new int[size];
-        first = last = 0;        
+        first = last = 0;
     }
 
     public boolean isFull() {
@@ -34,14 +34,14 @@ class Queue {
         arr[last++] = item;
         System.out.println("Enqueued !");
     }
-    
+
     public void dequeue() {
         if (isEmpty()) {
             System.out.println("Queue Empty !");
             return;
         }
         for (int i = 0; i < last - 1; i++)
-            arr[i] = arr[i+1];
+            arr[i] = arr[i + 1];
         last--;
         System.out.println("Dequeued !");
     }
@@ -52,7 +52,7 @@ class Queue {
             return;
         }
         System.out.print(arr[0]);
-        for ( int i = 1; i < last; i++ ) 
+        for (int i = 1; i < last; i++)
             System.out.print(" <- " + arr[i]);
     }
 }
@@ -60,11 +60,11 @@ class Queue {
 class TestQueue {
 
     public static void main(String args[]) throws IOException {
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Enter the size of the queue: ");
-		int size = Integer.parseInt(in.readLine());
+        int size = Integer.parseInt(in.readLine());
         boolean online = true;
-		int chosen = 1;
+        int chosen = 1;
         Queue q = new Queue(size);
         while (online) {
             System.out.println("\n____________________________");
@@ -72,24 +72,24 @@ class TestQueue {
             System.out.print("1. Enqueue \t2. Dequeue \n3. Display \t4. Exit \n\n\t: ");
             chosen = Integer.parseInt(in.readLine());
             System.out.println("\n");
-			switch (chosen) {
-				case 1: 
+            switch (chosen) {
+                case 1:
                     System.out.print("Enter the item to enqueue:");
                     int item = Integer.parseInt(in.readLine());
                     q.enqueue(item);
-					break;
-				case 2:
+                    break;
+                case 2:
                     q.dequeue();
-					break;
-				case 3:
+                    break;
+                case 3:
                     q.display();
-					break;
+                    break;
                 case 4:
                     online = false;
                     break;
-				default:
-					System.out.println("Invalid Choice! Try Again!");
-			}
+                default:
+                    System.out.println("Invalid Choice! Try Again!");
+            }
         }
-    }    
+    }
 }

@@ -8,7 +8,8 @@ class Link {
     public Link prev;
     public int data;
     public Link next;
-    public Link (int d) {
+
+    public Link(int d) {
         data = d;
     }
 
@@ -95,7 +96,7 @@ class Deque {
         if (!isEmpty()) {
             first.displayLink();
             Link currentLink = first.next;
-            while(currentLink != null) {
+            while (currentLink != null) {
                 System.out.print(" <-> ");
                 currentLink.displayLink();
                 currentLink = currentLink.next;
@@ -105,7 +106,6 @@ class Deque {
     }
 
 }
-
 
 class DequeLinkedList {
     public static void main(String[] args) throws IOException {
@@ -153,8 +153,7 @@ class DequeLinkedList {
                     if (link != null) {
                         System.out.print("The first element is ");
                         link.displayLink();
-                    }
-                    else
+                    } else
                         System.out.println("Empty List !");
                     break;
                 case 6:
@@ -162,8 +161,7 @@ class DequeLinkedList {
                     if (link != null) {
                         System.out.print("The last element is ");
                         link.displayLink();
-                    }
-                    else
+                    } else
                         System.out.println("Empty List !");
                     break;
                 case 7:
@@ -176,7 +174,7 @@ class DequeLinkedList {
                 default:
                     online = false;
                     break;
-}
-}
+            }
+        }
     }
 }

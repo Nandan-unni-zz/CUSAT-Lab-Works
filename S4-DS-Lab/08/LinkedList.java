@@ -7,7 +7,8 @@ import java.io.*;
 class Link {
     public int data;
     public Link next;
-    public Link (int d) {
+
+    public Link(int d) {
         data = d;
     }
 
@@ -46,10 +47,10 @@ class LinkedList {
         Link newLink = new Link(element);
         if (first == null) {
             first = newLink;
-        } else { 
+        } else {
             Link current = null;
             current = first;
-            while(current.next != null) {
+            while (current.next != null) {
                 current = current.next;
             }
             current.next = newLink;
@@ -63,7 +64,7 @@ class LinkedList {
             lastLink = first;
             if (first.next != null)
                 while (lastLink.next.next != null)
-                        lastLink = lastLink.next;
+                    lastLink = lastLink.next;
             lastLink.next = null;
             return lastLink;
         }
@@ -102,10 +103,26 @@ class LinkedList {
         return currentLink;
     }
 
+    public void removeDuplicates() {
+        Link currentLink = first;
+        Link loopLink;
+        int data;
+        while (currentLink != null) {
+            data = currentLink.data;
+            loopLink = first;
+            while (loopLink != null) {
+                if (loopLink == currentLink) {
+                    System.out.println("same");
+                }
+            }
+            currentLink = currentLink.next;
+        }
+    }
+
     public void displayList() {
         first.displayLink();
         Link currentLink = first.next;
-        while(currentLink != null) {
+        while (currentLink != null) {
             System.out.print(" -> ");
             currentLink.displayLink();
             currentLink = currentLink.next;
@@ -124,7 +141,8 @@ class TestLinkedList {
         while (online) {
             System.out.println("\n____________________________");
             System.out.println("\nSelect your LinkedList operation");
-            System.out.print("1. Insert first \t2. Delete first \n3. Insert last \t\t4. Delete last \n5. Insert \t\t6. Delete \n7.Display \t\t8. Exit \n\n\t: ");
+            System.out.print(
+                    "1. Insert first \t2. Delete first \n3. Insert last \t\t4. Delete last \n5. Insert \t\t6. Delete \n7.Display \t\t8. Exit \n\n\t: ");
             chosen = Integer.parseInt(in.readLine());
             System.out.println("\n");
             switch (chosen) {
