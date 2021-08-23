@@ -441,27 +441,27 @@ INSERT INTO result (regno, sub_code, sem, mark) VALUES (1, "sub1", 1, 66),
 (100, "sub8", 2, 62);
 
 
-// python command generator
-import random
+-- # python command generator
+-- import random
 
-sems = [1, 2, 3, 4, 5]
-sem1_subs = ["sub1", "sub2", "sub3", "sub4"]
-sem2_subs = ["sub5", "sub6", "sub7", "sub8"]
+-- sems = [1, 2, 3, 4, 5]
+-- sem1_subs = ["sub1", "sub2", "sub3", "sub4"]
+-- sem2_subs = ["sub5", "sub6", "sub7", "sub8"]
 
-cmd = "INSERT INTO result (regno, sub_code, sem, mark) VALUES "
-values = ""
+-- cmd = "INSERT INTO result (regno, sub_code, sem, mark) VALUES "
+-- values = ""
 
-sem = 1
-for student in range(1, 101):
-    if sem == 1:
-        for sub in sem1_subs:
-            cmd += f"""({student}, "{sub}", {sem}, {random.randint(30, 100)}), \n"""
-    else:
-        for sub in sem2_subs:
-            cmd += f"""({student}, "{sub}", {sem}, {random.randint(30, 100)}), \n"""
-    if student%10 == 0 and not student == 0:
-        if sem == 1: sem = 2
-        elif sem == 2: sem = 1
+-- sem = 1
+-- for student in range(1, 101):
+--     if sem == 1:
+--         for sub in sem1_subs:
+--             cmd += f"""({student}, "{sub}", {sem}, {random.randint(30, 100)}), \n"""
+--     else:
+--         for sub in sem2_subs:
+--             cmd += f"""({student}, "{sub}", {sem}, {random.randint(30, 100)}), \n"""
+--     if student%10 == 0 and not student == 0:
+--         if sem == 1: sem = 2
+--         elif sem == 2: sem = 1
 
-cmd = cmd[:-3] + ";"
-print(cmd)
+-- cmd = cmd[:-3] + ";"
+-- print(cmd)

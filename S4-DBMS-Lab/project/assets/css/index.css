@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+* {
+  margin: 0;
+  outline: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+}
+input[type="submit"],
+button {
+  background-color: saddlebrown;
+  color: white;
+  height: 45px;
+  width: 120px;
+  border: none;
+  border-radius: 5px;
+  font-size: 17px;
+  font-weight: 900;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+}
+.portal input[type="submit"]:hover,
+.portal button:hover {
+  color: rgb(255, 182, 130);
+}
+a {
+  color: saddlebrown;
+  font-weight: 900;
+  font-size: 17px;
+}
+a:hover {
+  color: rgb(114, 57, 16);
+}
+svg.icon {
+  height: 40px;
+  width: auto;
+  margin: 0 10px;
+}
+dialog.message {
+  border: 2px solid black;
+  color: saddlebrown;
+  font-size: 20px;
+  height: 45px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  margin: auto;
+  top: 10px;
+  border-radius: 5px;
+}
+dialog.message span {
+  border-radius: 500px;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 22px;
+  font-weight: 900;
+  margin-right: 10px;
+  background-color: dodgerblue;
+}
+dialog.message span.success {
+  background-color: green;
+}
+dialog.message span.warn {
+  background-color: orange;
+}
+dialog.message span.err {
+  background-color: tomato;
+}

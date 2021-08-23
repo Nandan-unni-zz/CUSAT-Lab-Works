@@ -1,0 +1,168 @@
+.home {
+  display: flex;
+}
+menu {
+  box-shadow: 0px 0px 20px 0px gray;
+  height: 100vh;
+  width: 15%;
+  padding: 30px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+}
+menu nav {
+  width: 100%;
+}
+menu nav h3 {
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 40px;
+}
+menu nav .navitem {
+  padding: 30px;
+  font-size: 18px;
+  font-weight: 900;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: rgb(50, 50, 50);
+}
+menu nav .navitem svg {
+  color: saddlebrown;
+  margin-right: 20px;
+}
+menu nav .navitem:hover {
+  background-color: rgb(255, 220, 195);
+  border-radius: 10px;
+  color: saddlebrown;
+  transition: all ease-in-out 0.3s;
+}
+menu h4 {
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+}
+main {
+  height: 100vh;
+  overflow-x: auto;
+}
+section.search {
+  box-shadow: 20px 0px 20px 0px gray;
+  background-color: white;
+  width: 100%;
+  height: 8vh;
+  position: fixed;
+  display: flex;
+  padding-left: 10%;
+  z-index: 2;
+}
+section.search form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 30%;
+}
+section.search span {
+  display: flex;
+  align-items: center;
+}
+section.search label {
+  padding-left: 10px;
+  color: saddlebrown;
+  cursor: pointer;
+}
+section.search input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.notesContainer {
+  padding-top: 12vh;
+  padding-bottom: 20px;
+  min-width: 85vw;
+  min-height: 100vh;
+  background-color: whitesmoke;
+}
+section.notes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.sectionTitle {
+  margin: 10px 80px;
+  padding: 5px 20px;
+  border-bottom: 1px solid rgb(199, 199, 199);
+}
+article.note {
+  width: 360px;
+  border: 0.5px solid rgb(199, 199, 199);
+  background-color: rgb(250, 250, 250);
+  border-radius: 10px;
+  margin: 10px;
+}
+article.note header {
+  border-bottom: 1px solid darkgray;
+  color: saddlebrown;
+  padding: 15px 20px;
+  font-size: 18px;
+}
+article.note p {
+  padding: 15px 20px;
+  /* white-space: nowrap; */
+  /* height: 100px; */
+  /* overflow: hidden; */
+  overflow-wrap: break-word;
+}
+article.note .labels {
+  padding: 5px 20px;
+  margin-bottom: 15px;
+}
+article.note .labels mark {
+  background-color: saddlebrown;
+  color: white;
+  font-weight: 900;
+  padding: 5px 12px;
+  border-radius: 500px;
+}
+article.note footer {
+  padding: 5px 0;
+  display: flex;
+  border-top: 1px solid darkgray;
+  justify-content: space-around;
+}
+article.note footer abbr {
+  cursor: pointer;
+  border-radius: 500px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+article.note footer abbr.pin {
+  color: orange;
+}
+article.note footer abbr.view {
+  color: green;
+}
+article.note footer abbr.edit {
+  color: dodgerblue;
+}
+article.note footer abbr.delete {
+  color: tomato;
+}
+
+article.note footer abbr.pin:hover {
+  background-color: rgb(255, 225, 170);
+}
+article.note footer abbr.view:hover {
+  background-color: rgb(174, 255, 174);
+}
+article.note footer abbr.edit:hover {
+  background-color: rgb(191, 239, 255);
+}
+article.note footer abbr.delete:hover {
+  background-color: rgb(255, 210, 210);
+}

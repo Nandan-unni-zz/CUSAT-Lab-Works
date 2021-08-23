@@ -1,0 +1,73 @@
+body {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: space-around;
+}
+form.portal {
+  width: 30%;
+  height: 50vh;
+  overflow: hidden;
+}
+form.portal h2 {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  margin-bottom: 40px;
+}
+form.portal fieldset {
+  border-width: 2px;
+  border-radius: 5px;
+  border-color: black;
+  font-size: 15px;
+  margin: 15px 0;
+  width: 90%;
+}
+form.portal fieldset input {
+  width: 100%;
+  height: 30px;
+  background: transparent;
+  border: none;
+  padding: 0 10px;
+  font-size: 18px;
+}
+form.portal fieldset label {
+  font-size: 17px;
+  font-weight: bold;
+  color: rgb(50, 50, 50);
+}
+form.portal nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin-top: 40px;
+}
+form.portal p.portalErr {
+  color: tomato;
+  font-weight: 900;
+  text-align: center;
+  padding-top: 20px;
+}
+form.createNote {
+  width: 50%;
+  height: fit-content;
+}
+form.createNote textarea {
+  border: none;
+  outline: none;
+  resize: none;
+  width: 100%;
+  height: 300px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 17px;
+  padding: 10px;
+}
+.confirm-dlt p {
+  text-align: center;
+  margin: 0;
+  font-size: 30px;
+}
+.confirm-dlt nav {
+  width: 100%;
+}
