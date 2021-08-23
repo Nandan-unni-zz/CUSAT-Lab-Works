@@ -4,3 +4,6 @@
 
 # Java
 *.class
+
+# Python
+__pycache__
