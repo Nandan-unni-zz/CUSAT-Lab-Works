@@ -22,4 +22,8 @@ Solutions to the IV Semester DS Lab Programs, 2019 Scheme <br /><br />
 
 **[10](10/Deque.java).** Write program to implement a DEQUE using Doubly Linked List. <br />
 
+**[11](11/PriorityQueue.java).** Write a java program to implement a descending priority queue using singly linked list. <br />
+
+**[12](12/TreeTraversal.java).** Write program to implement a binary search tree and perform tree traversals (Inorder, Preorder & Postorder) <br />
+
 **[Internals - I](Internals_I/LinkedList.java).** Create a Singly Linked List to delete a node in the middle and last. <br />

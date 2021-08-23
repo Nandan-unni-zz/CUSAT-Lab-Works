@@ -7,7 +7,8 @@ import java.io.*;
 class Link {
     public int data;
     public Link next;
-    public Link (int d) {
+
+    public Link(int d) {
         data = d;
     }
 
@@ -31,10 +32,10 @@ class LinkedList {
         Link newLink = new Link(element);
         if (first == null) {
             first = newLink;
-        } else { 
+        } else {
             Link current = null;
             current = first;
-            while(current.next != null) {
+            while (current.next != null) {
                 current = current.next;
             }
             current.next = newLink;
@@ -48,7 +49,7 @@ class LinkedList {
             lastLink = first;
             if (first.next != null)
                 while (lastLink.next.next != null)
-                        lastLink = lastLink.next;
+                    lastLink = lastLink.next;
             lastLink.next = null;
             return lastLink;
         }
@@ -73,7 +74,7 @@ class LinkedList {
     public void displayList() {
         first.displayLink();
         Link currentLink = first.next;
-        while(currentLink != null) {
+        while (currentLink != null) {
             System.out.print(" -> ");
             currentLink.displayLink();
             currentLink = currentLink.next;
@@ -96,8 +97,10 @@ class DeleteMiddleLast {
             list.insertLast(number);
             System.out.print("\nDo you want to continue (y/n) ? : ");
             choice = in.readLine();
-            if (choice.equals("y")) online = true;
-            else online = false;
+            if (choice.equals("y"))
+                online = true;
+            else
+                online = false;
         }
         System.out.print("\nThe linked list is : ");
         list.displayList();
