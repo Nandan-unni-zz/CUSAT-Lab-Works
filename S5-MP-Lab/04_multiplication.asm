@@ -1,0 +1,20 @@
+; A S Nandanunni
+; Reg No: 20219023
+; CS - A
+; 8 Bit Multiplication
+
+MVI D, 00
+MVI A, 00
+LXI H, 4150h
+MOV B, M
+INX H
+MOV C, M
+LOOP: ADD B
+JNC NEXT
+INR D
+NEXT: DCR C
+JNZ LOOP
+STA 4152h
+MOV A, D
+STA 4153h
+HLT

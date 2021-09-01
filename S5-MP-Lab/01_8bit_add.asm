@@ -1,3 +1,0 @@
-MOV A,B
-ADD C
-STA 0002

@@ -30,12 +30,12 @@ def plot_point():
     glColor3f(0.0, 0.0, 1.0)
     glPointSize(5.0)
     glBegin(GL_POINTS)
-    glVertex2f(x1 / 10, y1 / 10)
+    glVertex2f(x1 / 50, y1 / 50)
     for i in range(length):
         x = x + dx
         y = y + dy
-        glVertex2f(x / 10, y / 10)
-    glVertex2f(x2 / 10, y2 / 10)
+        glVertex2f(x / 50, y / 50)
+    glVertex2f(x2 / 50, y2 / 50)
     glEnd()
 
 
