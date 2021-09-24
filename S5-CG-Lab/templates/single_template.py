@@ -6,6 +6,12 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
 
+size = 100
+
+
+def plot_point(x, y):
+    glVertex2f(x / size, y / size)
+
 
 def init_glut():
     # initiate GLUT
@@ -20,20 +26,42 @@ def init_window():
     glutMainLoop()  # process events and triggers callback functions
 
 
+def plot_x_y_axis():
+    glColor3f(0.0, 0.0, 0.0)
+    glPointSize(5.0)
+    glBegin(GL_LINES)
+    # Y-axis
+    glVertex2f(0.0, 1.0)
+    glVertex2f(0.0, -1.0)
+    # X-axis
+    glVertex2f(-1.0, 0.0)
+    glVertex2f(1.0, 0.0)
+    glEnd()
+
+
+def plot_():
+    glColor3f(0.0, 0.0, 1.0)
+    glPointSize(5.0)
+    glBegin(GL_POINTS)
+    glEnd()
+
+
 def display():
     glClear(GL_COLOR_BUFFER_BIT)
 
-    # plot func here
+    plot_()
+    plot_x_y_axis()
 
     glFlush()  # clean buffer
 
 
 def main():
+    x = int(input(""))
     init_glut()
-    glutCreateWindow("Plot Point")  # create window
-    glutInitWindowSize(500, 500)  # window size
+    glutCreateWindow("Title")  # create window
+    glutInitWindowSize(size, size)  # window size
     glutInitWindowPosition(100, 100)  # window position
-    glutDisplayFunc(display)
+    glutDisplayFunc(lambda: display(x))
     init_window()
 
 

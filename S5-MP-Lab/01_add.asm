@@ -3,7 +3,7 @@
 ; CS - A
 ; 8 Bit Addition
 
-MOV A,B
+MOV A, B
 ADD C
 STA 0002
 HLT

@@ -1,0 +1,18 @@
+; A S Nandanunni
+; Reg No: 20219023
+; CS - A
+; Largest
+
+LXI H, 2000h
+MOV B, M
+INX H
+MOV A, M
+DCR B
+LOOP: INX H
+CMP M
+JNC AHEAD
+MOV A, M
+AHEAD: DCR B
+JNZ LOOP
+STA 2020h
+HLT

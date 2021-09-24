@@ -39,47 +39,40 @@ def plot_x_y_axis():
     glEnd()
 
 
-def plot_dda_line(x1, y1, x2, y2):
+def plot_():
     glColor3f(0.0, 0.0, 1.0)
     glPointSize(5.0)
     glBegin(GL_POINTS)
-    if abs(x2 - x1) > abs(y2 - y1):
-        length = abs(x2 - x1)
-    else:
-        length = abs(y2 - y1)
-    dx = (x2 - x1) / length
-    dy = (y2 - y1) / length
-    x = x1
-    y = y1
-    plot_point(x1, y1)
-    for _ in range(length):
-        x = x + dx
-        y = y + dy
-        plot_point(x, y)
-    plot_point(x2, y2)
     glEnd()
 
 
-def display(x1, y1, x2, y2):
+def display():
     glClear(GL_COLOR_BUFFER_BIT)
 
-    plot_dda_line(x1, y1, x2, y2)
+    plot_()
     plot_x_y_axis()
 
     glFlush()  # clean buffer
 
 
 def main():
-    x1 = int(input("Enter the initial x coordinate: "))
-    y1 = int(input("Enter the initial y coordinate: "))
-    x2 = int(input("Enter the final x coordinate: "))
-    y2 = int(input("Enter the final y coordinate: "))
-    init_glut()
-    glutCreateWindow("Title")  # create window
-    glutInitWindowSize(size, size)  # window size
-    glutInitWindowPosition(100, 100)  # window position
-    glutDisplayFunc(lambda: display(x1, y1, x2, y2))
-    init_window()
+    choice = 0
+    while not choice == 3:
+        print("_____________________________________\n")
+        x = int(input(""))
+        print("1. ")
+        print("2. ")
+        print("3. Exit")
+        choice = int(input("\nSelect : "))
+        if choice in [1, 2]:
+            init_glut()
+            glutCreateWindow("Title")  # create window
+            glutInitWindowSize(size, size)  # window size
+            glutInitWindowPosition(100, 100)  # window position
+            glutDisplayFunc(lambda: display(x))
+            init_window()
+        else:
+            print("\nInvalid choice !")
 
 
 if __name__ == "__main__":

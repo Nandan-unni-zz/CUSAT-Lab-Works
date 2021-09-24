@@ -1,0 +1,21 @@
+; A S Nandanunni
+; Reg No: 20219023
+; CS - A
+; Sum of series
+
+MVI	B, 00h	
+LXI	H, 0000h
+MOV	C, M	
+DCR	C	
+INX	H	
+MOV	A, M	
+LOOP: INX H	
+ADD	M	
+JNC	NEXT	
+INR	B	
+NEXT: DCR C	
+JNZ	LOOP	
+STA	0020h
+MOV	A, B
+STA	0021h	
+HLT
