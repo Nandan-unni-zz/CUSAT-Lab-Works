@@ -8,3 +8,7 @@
 # Python
 __pycache__
 env/
+
+# Assembly
+*.EXE
+*.OBJ
