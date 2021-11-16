@@ -4,10 +4,10 @@
 ; Sum of digits of a 8 Bit Number
 
 LDA 2000h
-MOV B,A
+MOV B, A
 ANI 0Fh 
-MOV C,A
-MOV A,B
+MOV C, A
+MOV A, B
 RLC
 RLC
 RLC

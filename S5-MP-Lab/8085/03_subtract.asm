@@ -3,7 +3,7 @@
 ; CS - A
 ; 8 Bit Subtraction
 
-MOV A,B
+MOV A, B
 SUB C
 STA 0002
 HLT
