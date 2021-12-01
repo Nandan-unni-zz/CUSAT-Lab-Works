@@ -8,15 +8,13 @@ from OpenGL.GLUT import *
 
 WINDOW_TITLE = "Template"
 WINDOW_SIZE = 500
-PLANE_SIZE = 100
+PLANE_SIZE = WINDOW_SIZE
 X = 0
-Y = 0
 
 
 def get_inputs():
-    global X, Y
-    X = float(input("Enter x co-ordinate: "))
-    Y = float(input("Enter y co-ordinate: "))
+    global X
+    X = float(input("Enter X: "))
 
 
 def init_glut():
@@ -29,38 +27,15 @@ def init_glut():
     gluOrtho2D(-PLANE_SIZE, PLANE_SIZE, -PLANE_SIZE, PLANE_SIZE)
 
 
-def plot_x_y_axis():
-    glColor3f(0.0, 0.0, 0.0)
-    glPointSize(5.0)
-    glBegin(GL_LINES)
-    # Y-axis
-    glVertex2f(0.0, PLANE_SIZE)
-    glVertex2f(0.0, -PLANE_SIZE)
-    # X-axis
-    glVertex2f(-PLANE_SIZE, 0.0)
-    glVertex2f(PLANE_SIZE, 0.0)
-    glEnd()
-
-
-def plot_point():
-    glColor3f(0.5, 0.0, 0.0)
-    glPointSize(5)
-    glBegin(GL_POINTS)
-    glVertex2f(X, Y)
-    glEnd()
-
-
 def display():
     glClear(GL_COLOR_BUFFER_BIT)
-    plot_x_y_axis()
-    plot_point()
     glFlush()
 
 
 def main():
     get_inputs()
     init_glut()
-    glutDisplayFunc(lambda: display())  # display function
+    glutDisplayFunc(display)  # display function
     glutMainLoop()  # process events and triggers callback functions
 
 

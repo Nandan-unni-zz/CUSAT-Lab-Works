@@ -6,11 +6,8 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
 
-size = 100
-
-
-def plot_point(x, y):
-    glVertex2f(x / size, y / size)
+WINDOW_SIZE = 500
+PLANE_SIZE = 100
 
 
 def init_glut():
@@ -22,7 +19,7 @@ def init_glut():
 
 def init_window():
     glClearColor(1.0, 1.0, 1.0, 1.0)  # background color
-    gluOrtho2D(-1.0, 1.0, -1.0, 1.0)  # foreground color
+    gluOrtho2D(-PLANE_SIZE, PLANE_SIZE, -PLANE_SIZE, PLANE_SIZE)
     glutMainLoop()  # process events and triggers callback functions
 
 
@@ -31,32 +28,33 @@ def plot_x_y_axis():
     glPointSize(5.0)
     glBegin(GL_LINES)
     # Y-axis
-    glVertex2f(0.0, 1.0)
-    glVertex2f(0.0, -1.0)
+    glVertex2f(0.0, PLANE_SIZE)
+    glVertex2f(0.0, -PLANE_SIZE)
     # X-axis
-    glVertex2f(-1.0, 0.0)
-    glVertex2f(1.0, 0.0)
+    glVertex2f(-PLANE_SIZE, 0.0)
+    glVertex2f(PLANE_SIZE, 0.0)
     glEnd()
 
 
 def plot_midpoint_line(x1, y1, x2, y2):
+    dx = x2 - x1
+    dy = y2 - y1
+    x, y = x1, y1
+    if dy <= dx:
+        d = dy - (dx / 2)
+    else:
+        d = dx - (dy / 2)
     glColor3f(0.0, 0.0, 1.0)
     glPointSize(5.0)
     glBegin(GL_POINTS)
-    dx = x2 - x1
-    dy = y2 - y1
-    dp = dy - (dx / 2)
-    x = x1
-    y = y1
-    plot_point(x, y)
-    while x < x2:
+    while x <= x2:
+        glVertex2f(x, y)
         x = x + 1
-        if dp < 0:
-            dp = dp + dy
+        if d < 0:
+            d = d + dy
         else:
-            dp = dp + (dy - dx)
             y = y + 1
-        plot_point(x, y)
+            d = d + dy - dx
     glEnd()
 
 
@@ -76,8 +74,7 @@ def main():
     y2 = int(input("Enter the final y coordinate: "))
     init_glut()
     glutCreateWindow("Plot Line")  # create window
-    glutInitWindowSize(size, size)  # window size
-    glutInitWindowPosition(100, 100)  # window position
+    glutInitWindowSize(WINDOW_SIZE, WINDOW_SIZE)  # window size
     glutDisplayFunc(lambda: display(x1, y1, x2, y2))
     init_window()
 

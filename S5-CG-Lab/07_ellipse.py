@@ -8,11 +8,8 @@ from OpenGL.GLUT import *
 
 from math import sin, cos, sqrt, pi
 
-size = 100
-
-
-def plot_point(x, y):
-    glVertex2f(x / size, y / size)
+WINDOW_SIZE = 500
+PLANE_SIZE = 100
 
 
 def init_glut():
@@ -23,8 +20,8 @@ def init_glut():
 
 
 def init_window():
-    glClearColor(1.0, 1.0, 1.0, 1.0)  # backgcolo
-    gluOrtho2D(-1.0, 1.0, -1.0, 1.0)  # foregcolo
+    glClearColor(1.0, 1.0, 1.0, 1.0)  # backgcolor
+    gluOrtho2D(-PLANE_SIZE, PLANE_SIZE, -PLANE_SIZE, PLANE_SIZE)
     glutMainLoop()  # process events and triggers callback functions
 
 
@@ -33,11 +30,11 @@ def plot_x_y_axis():
     glPointSize(5.0)
     glBegin(GL_LINES)
     # Y-axis
-    glVertex2f(0.0, 1.0)
-    glVertex2f(0.0, -1.0)
+    glVertex2f(0.0, PLANE_SIZE)
+    glVertex2f(0.0, -PLANE_SIZE)
     # X-axis
-    glVertex2f(-1.0, 0.0)
-    glVertex2f(1.0, 0.0)
+    glVertex2f(-PLANE_SIZE, 0.0)
+    glVertex2f(PLANE_SIZE, 0.0)
     glEnd()
 
 
@@ -50,7 +47,7 @@ def plot_polar_ellipse(xc, yc, rx, ry):
     while theta <= theta_end:
         x = rx * (cos(theta)) + xc
         y = ry * (sin(theta)) + yc
-        plot_point((x + xc), (y + yc))
+        glVertex2f((x + xc), (y + yc))
         theta += 0.001
     glEnd()
 
@@ -65,10 +62,10 @@ def plot_nonpolar_ellipse(xc, yc, rx, ry):
     v = 1 - ((x / a) * (x / a))
     while x < 0:
         y = b * (sqrt(1 - ((x / a) * (x / a))))
-        plot_point((x + xc), (y + yc))
-        plot_point((-x + xc), (y + yc))
-        plot_point((-x + xc), (-y + yc))
-        plot_point((x + xc), (-y + yc))
+        glVertex2f((x + xc), (y + yc))
+        glVertex2f((-x + xc), (y + yc))
+        glVertex2f((-x + xc), (-y + yc))
+        glVertex2f((x + xc), (-y + yc))
         x += 0.01
     glEnd()
 
@@ -100,8 +97,7 @@ def main():
         if choice in [1, 2]:
             init_glut()
             glutCreateWindow("Plot Point")  # create window
-            glutInitWindowSize(size, size)  # window size
-            glutInitWindowPosition(100, 100)  # window position
+            glutInitWindowSize(WINDOW_SIZE, WINDOW_SIZE)  # window size
             glutDisplayFunc(lambda: display(choice, xc, yc, rx, ry))
             init_window()
         else:

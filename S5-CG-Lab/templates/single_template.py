@@ -6,11 +6,11 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
 
-size = 100
+SIZE = 100
 
 
 def plot_point(x, y):
-    glVertex2f(x / size, y / size)
+    glVertex2f(x / SIZE, y / SIZE)
 
 
 def init_glut():
@@ -59,7 +59,7 @@ def main():
     x = int(input(""))
     init_glut()
     glutCreateWindow("Title")  # create window
-    glutInitWindowSize(size, size)  # window size
+    glutInitWindowSize(SIZE, SIZE)  # window size
     glutInitWindowPosition(100, 100)  # window position
     glutDisplayFunc(lambda: display(x))
     init_window()

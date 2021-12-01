@@ -6,11 +6,8 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
 
-size = 100
-
-
-def plot_point(x, y):
-    glVertex2f(x / size, y / size)
+WINDOW_SIZE = 500
+PLANE_SIZE = 100
 
 
 def init_glut():
@@ -22,7 +19,7 @@ def init_glut():
 
 def init_window():
     glClearColor(1.0, 1.0, 1.0, 1.0)  # background color
-    gluOrtho2D(-1.0, 1.0, -1.0, 1.0)  # foreground color
+    gluOrtho2D(-PLANE_SIZE, PLANE_SIZE, -PLANE_SIZE, PLANE_SIZE)
     glutMainLoop()  # process events and triggers callback functions
 
 
@@ -31,11 +28,11 @@ def plot_x_y_axis():
     glPointSize(5.0)
     glBegin(GL_LINES)
     # Y-axis
-    glVertex2f(0.0, 1.0)
-    glVertex2f(0.0, -1.0)
+    glVertex2f(0.0, PLANE_SIZE)
+    glVertex2f(0.0, -PLANE_SIZE)
     # X-axis
-    glVertex2f(-1.0, 0.0)
-    glVertex2f(1.0, 0.0)
+    glVertex2f(-PLANE_SIZE, 0.0)
+    glVertex2f(PLANE_SIZE, 0.0)
     glEnd()
 
 
@@ -51,12 +48,12 @@ def plot_dda_line(x1, y1, x2, y2):
     dy = (y2 - y1) / length
     x = x1
     y = y1
-    plot_point(x1, y1)
+    glVertex2f(x1, y1)
     for _ in range(length):
         x = x + dx
         y = y + dy
-        plot_point(x, y)
-    plot_point(x2, y2)
+        glVertex2f(x, y)
+    glVertex2f(x2, y2)
     glEnd()
 
 
@@ -76,7 +73,7 @@ def main():
     y2 = int(input("Enter the final y coordinate: "))
     init_glut()
     glutCreateWindow("Title")  # create window
-    glutInitWindowSize(size, size)  # window size
+    glutInitWindowSize(WINDOW_SIZE, WINDOW_SIZE)  # window size
     glutInitWindowPosition(100, 100)  # window position
     glutDisplayFunc(lambda: display(x1, y1, x2, y2))
     init_window()

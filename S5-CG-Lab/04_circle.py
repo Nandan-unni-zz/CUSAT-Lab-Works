@@ -8,11 +8,8 @@ from OpenGL.GLUT import *
 
 from math import sin, cos, pi, sqrt
 
-size = 100
-
-
-def plot_point(x, y):
-    glVertex2f(x / size, y / size)
+WINDOW_SIZE = 500
+PLANE_SIZE = 100
 
 
 def init_glut():
@@ -24,7 +21,7 @@ def init_glut():
 
 def init_window():
     glClearColor(1.0, 1.0, 1.0, 1.0)  # background color
-    gluOrtho2D(-1.0, 1.0, -1.0, 1.0)  # foreground color
+    gluOrtho2D(-PLANE_SIZE, PLANE_SIZE, -PLANE_SIZE, PLANE_SIZE)
     glutMainLoop()  # process events and triggers callback functions
 
 
@@ -33,23 +30,23 @@ def plot_x_y_axis():
     glPointSize(5.0)
     glBegin(GL_LINES)
     # Y-axis
-    glVertex2f(0.0, 1.0)
-    glVertex2f(0.0, -1.0)
+    glVertex2f(0.0, PLANE_SIZE)
+    glVertex2f(0.0, -PLANE_SIZE)
     # X-axis
-    glVertex2f(-1.0, 0.0)
-    glVertex2f(1.0, 0.0)
+    glVertex2f(-PLANE_SIZE, 0.0)
+    glVertex2f(PLANE_SIZE, 0.0)
     glEnd()
 
 
 def plot_8_parts(x, y, xc, yc):
-    plot_point((x + xc), (y + yc))  # I - top
-    plot_point((-x + xc), (-y + yc))  # III - down
-    plot_point((x + xc), (-y + yc))  # IV - down
-    plot_point((-x + xc), (y + yc))  # II - top
-    plot_point((y + xc), (x + yc))  # I - down
-    plot_point((-y + xc), (-x + yc))  # III - top
-    plot_point((y + xc), (-x + yc))  # IV - top
-    plot_point((-y + xc), (x + yc))  # II - down
+    glVertex2f((x + xc), (y + yc))  # I - top
+    glVertex2f((-x + xc), (-y + yc))  # III - down
+    glVertex2f((x + xc), (-y + yc))  # IV - down
+    glVertex2f((-x + xc), (y + yc))  # II - top
+    glVertex2f((y + xc), (x + yc))  # I - down
+    glVertex2f((-y + xc), (-x + yc))  # III - top
+    glVertex2f((y + xc), (-x + yc))  # IV - top
+    glVertex2f((-y + xc), (x + yc))  # II - down
 
 
 def mid_point_circle(r, xc, yc):
@@ -59,7 +56,7 @@ def mid_point_circle(r, xc, yc):
     glColor3f(0.0, 0.0, 1.0)
     glPointSize(5.0)
     glBegin(GL_POINTS)
-    plot_point((x + xc), (y + yc))
+    glVertex2f((x + xc), (y + yc))
     dp = (5 / 4) - r
     while x < y:
         x = x + 1
@@ -135,8 +132,7 @@ def main():
         if choice in [1, 2, 3]:
             init_glut()
             glutCreateWindow("Plot Circle")  # create window
-            glutInitWindowSize(size, size)  # window size
-            glutInitWindowPosition(size, size)  # window position
+            glutInitWindowSize(WINDOW_SIZE, WINDOW_SIZE)  # window size
             glutDisplayFunc(lambda: display(choice, r, xc, yc))
             init_window()
         else:

@@ -6,7 +6,7 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
 
-WINDOW_TITLE = "Template"
+WINDOW_TITLE = "Point"
 WINDOW_SIZE = 500
 PLANE_SIZE = 100
 X = 0

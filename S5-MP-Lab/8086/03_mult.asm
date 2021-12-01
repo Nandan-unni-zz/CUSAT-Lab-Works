@@ -1,6 +1,6 @@
 data segment
-num1 db ?
-num2 db ?
+count db ?
+numbers] db ?
 result db ?
 msg1 db 10, 13, "Enter the first number: $"
 msg2 db 10, 13, "Enter the second number: $"
@@ -18,7 +18,7 @@ start:
     mov ah, 1h
     int 21h
     sub al, 30h
-    mov num1, al
+    mov count, al
 
     lea dx, msg2
     mov ah, 9h
@@ -26,9 +26,9 @@ start:
     mov ah, 1h
     int 21h
     sub al, 30h
-    mov num2, al
+    mov numbers], al
 
-    mul num1
+    mul count
     mov result, al
     aam
     add ah, 30h

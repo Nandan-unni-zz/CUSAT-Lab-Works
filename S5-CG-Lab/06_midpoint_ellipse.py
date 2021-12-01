@@ -6,11 +6,8 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
 
-size = 100
-
-
-def plot_point(x, y):
-    glVertex2f(x / size, y / size)
+WINDOW_SIZE = 500
+PLANE_SIZE = 100
 
 
 def init_glut():
@@ -22,7 +19,7 @@ def init_glut():
 
 def init_window():
     glClearColor(1.0, 1.0, 1.0, 1.0)  # background color
-    gluOrtho2D(-1.0, 1.0, -1.0, 1.0)  # foreground color
+    gluOrtho2D(-PLANE_SIZE, PLANE_SIZE, -PLANE_SIZE, PLANE_SIZE)
     glutMainLoop()  # process events and triggers callback functions
 
 
@@ -31,11 +28,11 @@ def plot_x_y_axis():
     glPointSize(5.0)
     glBegin(GL_LINES)
     # Y-axis
-    glVertex2f(0.0, 1.0)
-    glVertex2f(0.0, -1.0)
+    glVertex2f(0.0, PLANE_SIZE)
+    glVertex2f(0.0, -PLANE_SIZE)
     # X-axis
-    glVertex2f(-1.0, 0.0)
-    glVertex2f(1.0, 0.0)
+    glVertex2f(-PLANE_SIZE, 0.0)
+    glVertex2f(PLANE_SIZE, 0.0)
     glEnd()
 
 
@@ -49,10 +46,10 @@ def plot_midpoint_ellipse(rx, ry, xc, yc):
     dy = 2 * rx * rx * y
 
     while dx < dy:
-        plot_point((x + xc), (y + yc))
-        plot_point((-x + xc), (y + yc))
-        plot_point((x + xc), (-y + yc))
-        plot_point((-x + xc), (-y + yc))
+        glVertex2f((x + xc), (y + yc))
+        glVertex2f((-x + xc), (y + yc))
+        glVertex2f((x + xc), (-y + yc))
+        glVertex2f((-x + xc), (-y + yc))
 
         if dp1 < 0:
             x += 1
@@ -72,10 +69,10 @@ def plot_midpoint_ellipse(rx, ry, xc, yc):
     )
 
     while y >= 0:
-        plot_point((x + xc), (y + yc))
-        plot_point((-x + xc), (y + yc))
-        plot_point((x + xc), (-y + yc))
-        plot_point((-x + xc), (-y + yc))
+        glVertex2f((x + xc), (y + yc))
+        glVertex2f((-x + xc), (y + yc))
+        glVertex2f((x + xc), (-y + yc))
+        glVertex2f((-x + xc), (-y + yc))
 
         if dp2 > 0:
             y -= 1
@@ -106,8 +103,7 @@ def main():
     yc = float(input("y-coordinate of center: "))
     init_glut()
     glutCreateWindow("Plot Point")  # create window
-    glutInitWindowSize(size, size)  # window size
-    glutInitWindowPosition(100, 100)  # window position
+    glutInitWindowSize(WINDOW_SIZE, WINDOW_SIZE)  # window size
     glutDisplayFunc(lambda: display(rx, ry, xc, yc))
     init_window()
 
