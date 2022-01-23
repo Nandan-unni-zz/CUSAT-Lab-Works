@@ -17,7 +17,7 @@ def get_inputs():
     X = float(input("Enter X: "))
 
 
-def init():
+def init_glut():
     print(f"\nOpening {WINDOW_TITLE}...")  # Opening message
     glutInitDisplayMode(GLUT_RGB)
     glutInit()  # Initiating glut
@@ -27,16 +27,28 @@ def init():
     gluOrtho2D(-PLANE_SIZE, PLANE_SIZE, -PLANE_SIZE, PLANE_SIZE)
 
 
+def plot_line():
+    glLineWidth(10.0)
+    glPointSize(5.0)
+    glColor3f(1.0, 1.0, 0.0)
+    glBegin(GL_LINES)
+    glVertex2f(100, 100)
+    glVertex2f(50, -50)
+    glEnd()
+
+
 def display():
     glClear(GL_COLOR_BUFFER_BIT)
-
+    plot_line()
     glFlush()
 
 
 def main():
-    init()
+    # get_inputs()
+    init_glut()
     glutDisplayFunc(display)  # display function
     glutMainLoop()  # process events and triggers callback functions
 
 
-main()
+if __name__ == "__main__":
+    main()

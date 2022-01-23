@@ -6,15 +6,9 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
 
-WINDOW_TITLE = "Template"
+WINDOW_TITLE = "Taj Mahal"
 WINDOW_SIZE = 500
 PLANE_SIZE = 100
-X = 0
-
-
-def get_inputs():
-    global X
-    X = float(input("Enter X: "))
 
 
 def init():

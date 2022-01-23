@@ -6,9 +6,15 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
 
+import time
+
 WINDOW_SIZE = 500
 PLANE_SIZE = 100
-
+INSIDE=0
+LEFT=1
+RIGHT=2
+BOTTOM=4
+TOP=8
 
 def init_glut():
     # initiate GLUT
@@ -19,8 +25,19 @@ def init_glut():
 
 def init_window():
     glClearColor(1.0, 1.0, 1.0, 1.0)  # background color
-    gluOrtho2D(-PLANE_SIZE, PLANE_SIZE, -PLANE_SIZE, PLANE_SIZE)
+    gluOrtho2D(0,1024,768,0)
     glutMainLoop()  # process events and triggers callback functions
+
+def getcode(x,y):
+    if x<xwmin:
+        code=code | LEFT
+    if x>xwmax:
+        code=code|RIGHT
+    if y<ywmin:
+        code=code|BOTTOM
+    if y>ywmax:
+        code=code|TOP
+    return code
 
 
 def plot_x_y_axis():
@@ -53,8 +70,22 @@ def plot_dda_line(x1, y1, x2, y2):
         x = x + dx
         y = y + dy
         glVertex2f(x, y)
+        time.sleep(2)
     glVertex2f(x2, y2)
     glEnd()
+    cohen(x1,y1,x2,y2)
+
+def cohen(x1,y1,x2,y2):
+    code1=getcode(x1,y1)
+    code2=getcode(x2,y2)
+    while true:
+        if (code1 & code2)==0:
+            accept=1
+            break
+        elif code1&code2!=0:
+            break
+        else
+            
 
 
 def display(x1, y1, x2, y2):
